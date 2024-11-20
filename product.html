@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <style>
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            text-align: center;
+            width: 150px;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-container" id="product-container"></div>
+
+    <script>
+        // Product Data
+        const products = [
+            {
+                name: "Cargolife",
+                id: "cargolife",
+                imageSrc:"assets/img/product/Carogolife.jpg", // Local image path
+                imageAlt: "Cargolife Product Image"
+            },
+            {
+                name: "Protinex",
+                id: "protinex",
+                imageSrc: "assets/img/product/protinex.jpg", // Local image path
+                imageAlt: "Protinex Product Image"
+            },
+            {
+                name: "Horti Silk",
+                id: "horti-silk",
+                imageSrc: "assets/img/product/hortilex.jpg", // Local image path
+                imageAlt: "Horti Silk Product Image"
+            },
+            {
+                name: "Hortilex",
+                id: "hortilex",
+                imageSrc: "assets/img/product/hortilex.jpg", // Local image path
+                imageAlt: "Hortilex Product Image"
+            },
+            {
+                name: "Suname",
+                id: "suname",
+                imageSrc: "assets/img/product/sunami.jpg", // Local image path
+                imageAlt: "Suname Product Image"
+            },
+            {
+                name: "Tonic",
+                id: "tonic",
+                imageSrc: "assets/img/product/tonic.jpg", // Local image path
+                imageAlt: "Tonic Product Image"
+            },
+            {
+                name: "Gloster",
+                id: "gloster",
+                imageSrc: "assets/img/product/glowster.jpg", // Local image path
+                imageAlt: "Gloster Product Image"
+            },
+            {
+                name: "Rambo",
+                id: "rambo",
+                imageSrc: "assets/img/product/rambo.jpg", // Local image path
+                imageAlt: "Rambo Product Image"
+            },
+            {
+                name: "Decent",
+                id: "decent",
+                imageSrc: "assets/img/product/decent.jpg", // Local image path
+                imageAlt: "Decent Product Image"
+            }
+        ];
+
+        // Rendering Products Using Map
+        const productContainer = document.getElementById('product-container');
+
+        products.map((product, index) => {
+            // Create Product Card
+            const productCard = document.createElement('div');
+            productCard.className = 'product';
+            productCard.innerHTML = `
+                <img src="${product.imageSrc}" alt="${product.imageAlt}">
+                <h3>${product.name}</h3>
+                <p>Price: $${(index + 1) * 10}</p>
+                <button>Add to Cart</button>
+            `;
+
+            // Append to Product Container
+            productContainer.appendChild(productCard);
+        });
+    </script>
+</body>
+</html>
